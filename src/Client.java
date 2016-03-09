@@ -10,7 +10,7 @@ public class Client {
 
         BufferedReader provideInputToServer = new BufferedReader(new InputStreamReader(System.in));
 
-        Socket clientSocket = new Socket ("localhost", 1234);
+        Socket clientSocket = new Socket ("localhost",8888);
 
         DataOutputStream provideOutputToServer = new DataOutputStream(clientSocket.getOutputStream());
 
@@ -18,7 +18,7 @@ public class Client {
 
         text = provideInputToServer.readLine();
 
-        provideOutputToServer.writeBytes(text);
+        provideOutputToServer.writeBytes(text+'\n');
 
         modifiedText = recieveInputFromServer.readLine();
 

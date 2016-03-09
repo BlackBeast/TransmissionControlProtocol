@@ -8,7 +8,7 @@ public class Server {
     public static void main(String[] args) throws Exception{
         String clientText;
         String textToUpperCase;
-        ServerSocket recieveClientSocket = new ServerSocket(1234);
+        ServerSocket recieveClientSocket = new ServerSocket(8888);
 
         while(true){
             Socket connectionSocket = recieveClientSocket.accept();
@@ -19,7 +19,7 @@ public class Server {
 
             clientText = recieveInputFromClient.readLine();
 
-            textToUpperCase = clientText.toUpperCase();
+            textToUpperCase = clientText.toUpperCase()+'\n';
 
             provideOutputToClient.writeBytes(textToUpperCase);
         }
